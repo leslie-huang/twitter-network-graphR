@@ -38,7 +38,7 @@ generate_alters_followers <- function(ego_network, n_alters = NULL, n_alters_alt
   }
 
   # get character vector of n alters from the ego's df
-  alters <- as.character(ego_network[1:n_alters, "follower_name"])
+  alters <- unique(as.character(ego_network[1:n_alters, "follower_name"]))
 
   # generate list of user objects for the alters
   alters_users <- lookupUsers(alters)
