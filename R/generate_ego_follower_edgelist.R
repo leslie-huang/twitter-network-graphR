@@ -10,7 +10,7 @@
 
 generate_ego_follower_edgelist <- function(ego_name, n = NULL) {
 
-  df <- data.frame(user = character(), follower_name = character()) # instantiate a df to populate with follower edges
+  df <- data.frame(user = character(), follower_name = character(), degree_n = character()) # instantiate a df to populate with follower edges
 
   ego <- getUser(ego_name)
 
@@ -35,7 +35,7 @@ generate_ego_follower_edgelist <- function(ego_name, n = NULL) {
 
   for (i in 1:num_edges) {
     df <- rbind(df, data.frame(user = ego$screenName,
-                               follower_name = followers[[i]]$screenName))
+                               follower_name = followers[[i]]$screenName, degree_n = "1"))
   }
 
   return(df)

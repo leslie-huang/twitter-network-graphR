@@ -4,11 +4,13 @@
 \alias{generate_alters_followers}
 \title{Function to get followers of followers from a previously generated ego's list of followers}
 \usage{
-generate_alters_followers(ego_network, n_alters = NULL,
+generate_alters_followers(ego_network, degree_n, n_alters = NULL,
   n_alters_alters = NULL)
 }
 \arguments{
 \item{ego_network}{name of the ego network df (to minimize the number of API calls, you must pass in the ego network, not simply the ego user's name)}
+
+\item{degree_n}{degree that these followers are connected to the original ego}
 
 \item{n_alters}{number of ego's alters to retrieve followers for (set to NULL to retrieve followers for all alters. Value of NULL is likely to result in extremely long run time)}
 

@@ -3,6 +3,7 @@
 #'
 #' Get networks of each alter following the original ego
 #' @param ego_network name of the ego network df (to minimize the number of API calls, you must pass in the ego network, not simply the ego user's name)
+#' @param degree_n degree that these followers are connected to the original ego
 #' @param n_alters number of ego's alters to retrieve followers for (set to NULL to retrieve followers for all alters. Value of NULL is likely to result in extremely long run time)
 #' @param n_alters_alters max num of each alter's followers to retrieve (set to NULL to retrieve all followers for each alter. Value of NULL is likely to result in extremely long run time)
 #' @export
@@ -10,10 +11,10 @@
 #'
 #' @examples generate_alters_followers(APSA_network)
 
-generate_alters_followers <- function(ego_network, n_alters = NULL, n_alters_alters = NULL) {
+generate_alters_followers <- function(ego_network, degree_n, n_alters = NULL, n_alters_alters = NULL) {
 
   # instantiate the dataframe
-  df <- data.frame(user = character(), follower_name = character())
+  df <- data.frame(user = character(), follower_name = character(), degree_n = character())
 
   # if not retrieving ALL of the ego's alters
   if (!is.null(n_alters)) {
@@ -68,7 +69,7 @@ generate_alters_followers <- function(ego_network, n_alters = NULL, n_alters_alt
       # append the followee-follower edges to the df
       for (i in 1:length(alter_followers)) {
         df <- rbind(df, data.frame(user = current_alter$screenName,
-                                   follower_name = alter_followers[[i]]$screenName))
+                                   follower_name = alter_followers[[i]]$screenName, degree_n = degree_n))
 
       }
 
