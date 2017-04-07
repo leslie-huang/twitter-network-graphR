@@ -7,10 +7,10 @@ This package is a work in progress with limited functionality. It is designed to
 - Followers of the followers of the ego user (can be repeated ad infinitum)
 
 To install, you first need the `devtools` R library:
-`install.packages("devtools")
-library("devtools")`
+`install.packages("devtools")`
+`library("devtools")`
 
 Then install using
 
-`devtools::install_github("leslie-huang/twitter-network-graphR")
-library(twitter-network-graphR)`
+`devtools::install_github("leslie-huang/twitter-network-graphR")`
+`library(twitter-network-graphR)`
