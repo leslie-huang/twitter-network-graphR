@@ -69,7 +69,7 @@ generate_alters_followers <- function(ego_network, degree_n, n_alters = NULL, n_
       # append the followee-follower edges to the df
       for (i in 1:length(alter_followers)) {
         df <- rbind(df, data.frame(user = current_alter$screenName,
-                                   follower_name = alter_followers[[i]]$screenName, degree_n = degree_n))
+                                   follower_name = alter_followers[[i]]$screenName, degree_n = as.character(degree_n)))
 
       }
 

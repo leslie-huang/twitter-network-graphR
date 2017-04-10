@@ -44,7 +44,7 @@ generate_alters_friends <- function(ego_network, degree_n, n_alters = NULL, n_al
   # generate list of user objects for the alters
   alters_users <- lookupUsers(alters)
 
-  # get followers of each alter in alters_users
+  # get friends of each alter in alters_users
   for (i in 1:length(alters_users)) {
     current_alter <- alters_users[[i]]
 
@@ -63,13 +63,13 @@ generate_alters_friends <- function(ego_network, degree_n, n_alters = NULL, n_al
 
       print(paste("Getting friends of", as.character(current_alter$screenName), sep = " "))
 
-      # get the followers
+      # get the friends
       alter_friends <- current_alter$getFriends(n = n_alters_alters)
 
-      # append the followee-follower edges to the df
+      # append the alter-friend edges to the df
       for (i in 1:length(alter_friends)) {
         df <- rbind(df, data.frame(user = current_alter$screenName,
-                                   friend_name = alter_friends[[i]]$screenName, degree_n = degree_n))
+                                   friend_name = alter_friends[[i]]$screenName, degree_n = as.character(degree_n)))
 
       }
 
