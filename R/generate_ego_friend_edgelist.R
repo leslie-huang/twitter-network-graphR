@@ -31,7 +31,7 @@ generate_ego_friend_edgelist <- function(ego_name, n = NULL) {
 
   friends <- ego$getFriends(n = n)
 
-  num_edges <- length(followers)
+  num_edges <- length(friends)
 
   for (i in 1:num_edges) {
     df <- rbind(df, data.frame(user = ego$screenName,
