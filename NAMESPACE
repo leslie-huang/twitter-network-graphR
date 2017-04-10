@@ -3,4 +3,5 @@
 export(generate_alters_followers)
 export(generate_alters_friends)
 export(generate_ego_follower_edgelist)
+export(generate_ego_friend_edgelist)
 import(twitteR)

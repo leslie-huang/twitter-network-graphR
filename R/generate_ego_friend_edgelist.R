@@ -6,9 +6,9 @@
 #' @export
 #' @import twitteR
 #'
-#' @examples generate_ego_friends_edgelist("APSAtweets")
+#' @examples generate_ego_friend_edgelist("APSAtweets")
 
-generate_ego_follower_edgelist <- function(ego_name, n = NULL) {
+generate_ego_friend_edgelist <- function(ego_name, n = NULL) {
 
   df <- data.frame(user = character(), friend_name = character(), degree_n = character()) # instantiate a df to populate with follower edges
 
